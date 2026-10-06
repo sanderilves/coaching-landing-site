@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triatloni treener | Individuaalne triatloni treening – DRAFT v3</title>
+<meta name="description" content="Individuaalne triatloni treening vanuseklassi sportlastele Eestis. Sprindist täispika distantsini. Broneeri tasuta tutvumiskõne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0d0f; --muted:#5f666d; --bg:#fff; --soft:#f3f4f5; --line:#e4e6e8;
+    --accent:#0b0d0f; --max:1180px;
+    --display:"Barlow Condensed",Impact,"Arial Narrow",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font:16px/1.65 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .draft-note{background:#f3f4f5;font-size:13px;padding:6px 0;text-align:center;color:#5f666d}
+  .display{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;line-height:.95;margin:0}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#8a9096;margin:0 0 14px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .logo{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+  .logo span{color:var(--accent)}
+  .links{display:none;gap:28px}
+  .links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+  .links a:hover{text-decoration:underline;text-underline-offset:6px}
+  .right{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;font-size:13px;font-weight:600}
+  .lang button{border:0;background:none;padding:4px 6px;cursor:pointer;color:#a0a6ab;font:inherit;letter-spacing:.1em}
+  .lang button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+  .nav-cta{display:none}
+  @media(min-width:860px){.links{display:flex}.nav-cta{display:inline-block}}
+
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:15px 26px;border:2px solid var(--accent);transition:.15s}
+  .btn:hover{background:#fff;color:var(--ink)}
+  .hero .btn:not(.ghost),.contact .btn{background:#fff;color:var(--ink);border-color:#fff}
+  .hero .btn:not(.ghost):hover,.contact .btn:hover{background:transparent;color:#fff}
+  .btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+  .btn.ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .btn.sm{padding:10px 16px;font-size:12px}
+
+  /* hero: full-bleed media */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;
+    background:#1b2329 repeating-linear-gradient(135deg,#1b2329 0 22px,#1f282f 22px 44px)}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.15) 60%)}
+  .media-tag{position:absolute;top:24px;right:24px;font-size:12px;letter-spacing:.1em;border:1px dashed rgba(255,255,255,.5);padding:6px 10px;opacity:.8}
+  .hero .wrap{position:relative;padding-bottom:72px;width:100%}
+  .hero h1{font-size:clamp(52px,11vw,124px);font-weight:800;max-width:11ch}
+  .hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:2px #fff}
+  .hero p{font-size:18px;max-width:46ch;opacity:.9;margin:22px 0 30px}
+  .hero .btn.ghost{margin-left:10px}
+  @media(max-width:480px){.hero .btn.ghost{margin:10px 0 0}}
+
+  /* stat band */
+  .stats{background:var(--ink);color:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.stats .wrap{grid-template-columns:repeat(4,1fr)}}
+  .stat{padding:34px 10px;border-right:1px solid #22272c;text-align:center}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-family:var(--display);font-weight:800;font-size:46px;line-height:1;color:#fff}
+  .stat span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#aab1b7}
+  .stat.ph b{color:#6d767e}
+
+  /* distance strip (replaces sponsor logo strip) */
+  .strip{border-bottom:1px solid var(--line)}
+  .strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 36px;padding:22px 20px}
+  .strip span{font-family:var(--display);font-weight:600;font-size:20px;text-transform:uppercase;color:#9aa1a7;letter-spacing:.06em}
+
+  section{padding:96px 0}
+  .split{display:grid;gap:48px;align-items:center}
+  @media(min-width:900px){.split{grid-template-columns:1fr 1fr}.split.rev .media{order:2}}
+  .media{aspect-ratio:4/5;background:var(--soft) repeating-linear-gradient(135deg,#eef0f1 0 18px,#f5f6f7 18px 36px);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px dashed #cfd4d8;padding:20px}
+  h2.display{font-size:clamp(40px,6vw,68px);font-weight:800;margin-bottom:22px}
+  .lead{font-size:18px;color:var(--muted);max-width:48ch;margin:0 0 28px}
+
+  /* who-for cards */
+  .who{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+  @media(min-width:760px){.who{grid-template-columns:repeat(3,1fr)}}
+  .who div{background:#fff;padding:32px 28px}
+  .who .n{font-family:var(--display);font-weight:800;font-size:48px;color:var(--accent);line-height:1}
+  .who h3{font-family:var(--display);text-transform:uppercase;font-size:26px;margin:10px 0 6px}
+  .who p{margin:0;color:var(--muted)}
+
+  ul.list{list-style:none;padding:0;margin:0 0 32px;border-top:1px solid var(--line)}
+  ul.list li{padding:14px 0 14px 34px;border-bottom:1px solid var(--line);position:relative;font-weight:500}
+  ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;height:3px;background:var(--accent)}
+
+  /* big statement band (replaces "2x IRONMAN WINNER") */
+  .statement{background:#fff;color:var(--ink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);text-align:center;padding:80px 0}
+  .statement .display{font-size:clamp(40px,8vw,92px);font-weight:800}
+  .statement p{margin:18px auto 0;max-width:52ch;font-size:18px;opacity:.95}
+
+  .wwh{display:grid;gap:0;margin:32px 0}
+  .wwh div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .wwh b{font-family:var(--display);font-size:24px;text-transform:uppercase;color:var(--accent)}
+  .ph-text{background:#f3f4f5;border-left:3px dashed #9aa1a7;padding:14px 18px;color:#5f666d;font-size:14px;margin:0 0 24px}
+
+  /* steps */
+  .steps{display:grid;gap:32px;margin-top:48px;counter-reset:s}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .steps div{border-top:3px solid var(--ink);padding-top:18px}
+  .steps div::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-weight:800;font-size:40px;color:var(--accent);display:block;line-height:1;margin-bottom:8px}
+  .steps h3{font-family:var(--display);text-transform:uppercase;font-size:24px;margin:0 0 6px}
+  .steps p{margin:0;color:var(--muted)}
+  .price{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:17px}
+  .price b{font-family:var(--display);text-transform:uppercase;font-size:22px;margin-right:8px}
+  .price a{font-weight:600;text-underline-offset:4px}
+
+  /* contact */
+  .contact{background:var(--ink);color:#fff;text-align:center}
+  .contact .lead{color:#aab1b7;margin:0 auto 36px}
+  .contact .mail{display:block;margin-top:22px;color:#aab1b7;font-size:15px}
+  .contact .mail a{color:#fff}
+  .contact .ph-text{background:#15191d;color:#9aa1a7;border-color:#4a5258;max-width:640px;margin:40px auto 0;text-align:left}
+  footer{background:var(--ink);color:#6d767e;font-size:13px;letter-spacing:.06em;border-top:1px solid #22272c}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:24px 20px}
+
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="draft-note">VISUAL DRAFT v3 (black &amp; white) — dashed / striped areas = photo, video or copy placeholders</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Sander<span>.</span>Coaching</a>
+    <nav class="links" data-lang="et"><a href="#treening">Treening</a><a href="#minust">Minust</a><a href="#kontakt">Kontakt</a></nav>
+    <nav class="links" data-lang="en" hidden><a href="#coaching">Coaching</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Keel / Language">
+        <button type="button" data-set="et" aria-pressed="true">ET</button><span style="color:#ccc">/</span><button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn sm nav-cta" data-lang="et" href="#kontakt">Tasuta kõne</a>
+      <a class="btn sm nav-cta" data-lang="en" href="#contact" hidden>Free call</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= ESTONIAN ======================= -->
+<main data-lang="et" id="top">
+  <section class="hero" style="padding:0">
+    <div class="media-tag">[ VIDEO / FOTO – sina avavees või rattal ]</div>
+    <div class="wrap">
+      <p class="kicker">Individuaalne triatloni treening · Eesti</p>
+      <h1 class="display">Ujumine. Ratas. Jooks. <em>Sinu plaan.</em></h1>
+      <p>Personaalne treening vanuseklassi triatleetidele – esimesest sprindist täispika distantsini.</p>
+      <a class="btn" href="#kontakt">Broneeri tasuta tutvumiskõne</a><a class="btn ghost" href="#treening">Vaata, kuidas see käib</a>
+    </div>
+  </section>
+
+  <div class="stats"><div class="wrap">
+    <div class="stat"><b>L1</b><span>World Triathlon treener</span></div>
+    <div class="stat"><b>1:1</b><span>Individuaalne juhendamine</span></div>
+    <div class="stat ph"><b>[X]</b><span>Aastat triatlonis</span></div>
+    <div class="stat ph"><b>[X]</b><span>Läbitud võistlust</span></div>
+  </div></div>
+
+  <div class="strip"><div class="wrap"><span>Sprint</span><span>Olümpia</span><span>Poolpikk</span><span>Täispikk</span><span>Avavesi</span></div></div>
+
+  <section id="treening">
+    <div class="wrap">
+      <p class="kicker">Kellele</p>
+      <h2 class="display">Treeni targemalt,<br>mitte rohkem.</h2>
+      <p class="lead">Sul on töö, pere ja piiratud aeg. Saad kava, mis arvestab kõigega – ja Eesti hooaegadega.</p>
+      <div class="who">
+        <div><span class="n">01</span><h3>Esimene triatlon</h3><p>Tahad sprindi või olümpiadistantsi läbida enesekindlalt ja tervena.</p></div>
+        <div><span class="n">02</span><h3>Pikk distants</h3><p>Valmistud poolpikaks või täispikaks – näiteks Ironman Tallinnaks.</p></div>
+        <div><span class="n">03</span><h3>Areng seisab</h3><p>Treenid palju, aga ajad ei parane. Vaja on selget struktuuri.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--soft)">
+    <div class="wrap split">
+      <div class="media">[ FOTO ]<br>Treeningu hetk – nt ujumistrenn või rattasõit</div>
+      <div>
+        <p class="kicker">Mis on sees</p>
+        <h2 class="display">Üks treener.<br>Üks plaan.<br>Sinu oma.</h2>
+        <ul class="list">
+          <li>Personaalne kava ujumiseks, rattaks ja jooksuks</li>
+          <li>Kava, mis mahub sinu töö- ja pereellu</li>
+          <li>Regulaarne tagasiside ja kava kohandamine</li>
+          <li>Võistluseks valmistumine: tempo, toitumine, vahetusalad</li>
+          <li>Avavee ettevalmistus enne suvehooaega</li>
+        </ul>
+        <a class="btn" href="#kontakt">Broneeri tasuta tutvumiskõne</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="statement"><div class="wrap">
+    <p class="display">Igal trennil on eesmärk.</p>
+    <p>Sa tead alati, mida teed, miks sa seda teed ja kuidas see sind finišile lähemale viib.</p>
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Kuidas see käib</p>
+      <h2 class="display">Kõnest stardijooneni</h2>
+      <div class="steps">
+        <div><h3>Tutvumiskõne</h3><p>Räägime sinu eesmärkidest ja ajast. Tasuta.</p></div>
+        <div><h3>Hetkeseis</h3><p>Vaatame üle sinu tausta, tugevused ja nõrkused.</p></div>
+        <div><h3>Sinu kava</h3><p>Saad nädalakava, mis sobib sinu eluga.</p></div>
+        <div><h3>Treenime koos</h3><p>Jälgin arengut ja kohandan kava jooksvalt.</p></div>
+      </div>
+      <p class="price"><b>Hind?</b>Iga sportlane on erinev – teen sulle isikliku pakkumise. <a href="#kontakt">Võta ühendust →</a></p>
+    </div>
+  </section>
+
+  <section id="minust" style="background:var(--soft)">
+    <div class="wrap split rev">
+      <div class="media">[ PORTREE ]<br>Sina – võistlusel või treeneri rollis</div>
+      <div>
+        <p class="kicker">Minust</p>
+        <h2 class="display">Treener, kes ise ka võistleb.</h2>
+        <p class="lead" style="margin-bottom:20px">Olen Sander – triatleet ja World Triathlon Level 1 treener. Juhendan vanuseklassi sportlasi üks-ühele.</p>
+        <p class="ph-text"><b>PLACEHOLDER:</b> sinu triatloni kogemus – võistlused, distantsid, aastad. 2–3 lauset.</p>
+        <div class="wwh">
+          <div><b>Mida</b><span>Iga trenn algab selgest eesmärgist.</span></div>
+          <div><b>Miks</b><span>Tead, mida see trenn sulle annab.</span></div>
+          <div><b>Kuidas</b><span>Konkreetsed juhised – ja natuke mängulisust.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap">
+      <p class="kicker">Järgmine samm</p>
+      <h2 class="display">Alustame kõnest.</h2>
+      <p class="lead">30 minutit, tasuta ja ilma kohustusteta. Räägime, kas ja kuidas saan sind aidata.</p>
+      <a class="btn" href="#" title="TODO: Calendly coaching event URL">Broneeri tasuta tutvumiskõne</a>
+      <span class="mail">või kirjuta: <a href="mailto:TODO@example.com">TODO@example.com</a></span>
+      <p class="ph-text"><b>PLACEHOLDER – KONTAKTIVORM:</b> otsus tegemata. Kui lisandub: nimi, e-post, sõnum + GDPR nõusolek.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= ENGLISH ======================= -->
+<main data-lang="en" hidden>
+  <section class="hero" style="padding:0">
+    <div class="media-tag">[ VIDEO / PHOTO – you in open water or on the bike ]</div>
+    <div class="wrap">
+      <p class="kicker">One-to-one triathlon coaching · Estonia</p>
+      <h1 class="display">Swim. Bike. Run. <em>Your plan.</em></h1>
+      <p>Personal coaching for age-group triathletes – from your first sprint to full distance.</p>
+      <a class="btn" href="#contact">Book a free intro call</a><a class="btn ghost" href="#coaching">See how it works</a>
+    </div>
+  </section>
+
+  <div class="stats"><div class="wrap">
+    <div class="stat"><b>L1</b><span>World Triathlon Coach</span></div>
+    <div class="stat"><b>1:1</b><span>Individual coaching</span></div>
+    <div class="stat ph"><b>[X]</b><span>Years in triathlon</span></div>
+    <div class="stat ph"><b>[X]</b><span>Races finished</span></div>
+  </div></div>
+
+  <div class="strip"><div class="wrap"><span>Sprint</span><span>Olympic</span><span>Half distance</span><span>Full distance</span><span>Open water</span></div></div>
+
+  <section id="coaching">
+    <div class="wrap">
+      <p class="kicker">Who it's for</p>
+      <h2 class="display">Train smarter,<br>not more.</h2>
+      <p class="lead">You have a job, a family and limited time. You get a plan that fits all of it – and the Estonian seasons. Coaching in English.</p>
+      <div class="who">
+        <div><span class="n">01</span><h3>First triathlon</h3><p>You want to finish a sprint or olympic distance with confidence and stay healthy.</p></div>
+        <div><span class="n">02</span><h3>Long distance</h3><p>You're building towards a half or full – like Ironman Tallinn.</p></div>
+        <div><span class="n">03</span><h3>Stuck on a plateau</h3><p>You train a lot, but your times aren't moving. You need clear structure.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--soft)">
+    <div class="wrap split">
+      <div class="media">[ PHOTO ]<br>Coaching moment – e.g. swim or bike session</div>
+      <div>
+        <p class="kicker">What's included</p>
+        <h2 class="display">One coach.<br>One plan.<br>Yours.</h2>
+        <ul class="list">
+          <li>A personal swim, bike and run plan</li>
+          <li>Built around your work and family life</li>
+          <li>Regular feedback and plan adjustments</li>
+          <li>Race prep: pacing, nutrition, transitions</li>
+          <li>Open water preparation before summer season</li>
+        </ul>
+        <a class="btn" href="#contact">Book a free intro call</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="statement"><div class="wrap">
+    <p class="display">Every session has a purpose.</p>
+    <p>You always know what you're doing, why you're doing it, and how it gets you closer to the finish line.</p>
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2 class="display">From call to start line</h2>
+      <div class="steps">
+        <div><h3>Intro call</h3><p>We talk about your goals and available time. Free.</p></div>
+        <div><h3>Starting point</h3><p>We review your background, strengths and limiters.</p></div>
+        <div><h3>Your plan</h3><p>You get a weekly plan that fits your life.</p></div>
+        <div><h3>Train together</h3><p>I track your progress and adjust as we go.</p></div>
+      </div>
+      <p class="price"><b>Pricing?</b>Every athlete is different – I'll make you a personal offer. <a href="#contact">Get in touch →</a></p>
+    </div>
+  </section>
+
+  <section id="about" style="background:var(--soft)">
+    <div class="wrap split rev">
+      <div class="media">[ PORTRAIT ]<br>You – racing or coaching</div>
+      <div>
+        <p class="kicker">About me</p>
+        <h2 class="display">A coach who races too.</h2>
+        <p class="lead" style="margin-bottom:20px">I'm Sander – a triathlete and World Triathlon Level 1 Coach. I coach age-group athletes one-to-one.</p>
+        <p class="ph-text"><b>PLACEHOLDER:</b> your triathlon experience – races, distances, years. 2–3 sentences.</p>
+        <div class="wwh">
+          <div><b>What</b><span>Every session starts with a clear objective.</span></div>
+          <div><b>Why</b><span>You know what a session gives you.</span></div>
+          <div><b>How</b><span>Concrete cues – and a bit of play.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="kicker">Next step</p>
+      <h2 class="display">Let's start with a call.</h2>
+      <p class="lead">30 minutes, free, no commitment. We'll see if and how I can help.</p>
+      <a class="btn" href="#" title="TODO: Calendly coaching event URL">Book a free intro call</a>
+      <span class="mail">or email: <a href="mailto:TODO@example.com">TODO@example.com</a></span>
+      <p class="ph-text"><b>PLACEHOLDER – CONTACT FORM:</b> not decided. If added: name, email, message + GDPR consent.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Sander · World Triathlon Level 1 Coach</span><span>Eesti / Estonia</span></div></footer>
+
+<script>
+  const btns=document.querySelectorAll('.lang button');
+  function setLang(l){
+    document.querySelectorAll('[data-lang]').forEach(el=>el.hidden=el.dataset.lang!==l);
+    btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));
+    document.documentElement.lang=l; window.scrollTo(0,0);
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.set)));
+</script>
+</body>
+</html>
