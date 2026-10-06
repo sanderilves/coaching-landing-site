@@ -51,3 +51,10 @@ Domain · hosting · Calendly URL · email · contact form · analytics · photo
 - Both pages updated and in sync.
 - Check at 375px and 1280px widths.
 - Valid HTML, no console errors, all images have alt + dimensions.
+
+## Preview hosting
+- Preview runs on GitHub Pages: https://sanderilves.github.io/coaching-landing-site/ (served from a subpath).
+- Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/` and `assets/` are published – never `reference/` or the `.md` files. New site files/folders must be added to the workflow's copy step.
+- All links to pages and assets must be relative (no leading "/"), or they break under the subpath.
+- Both pages carry `<meta name="robots" content="noindex">` while in preview. Remove it only when the site goes live on its real domain.
+- The repo is public: never commit secrets, personal data or unpublished private material.
