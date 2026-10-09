@@ -149,17 +149,6 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .statement .display{font-size:clamp(40px,8vw,92px);font-weight:800}
 .statement p:not(.display){margin:18px auto 0;max-width:52ch;font-size:18px}
 
-/* ---------- How it works ---------- */
-.steps{list-style:none;padding:0;display:grid;gap:32px;margin:48px 0 0;counter-reset:s}
-@media (min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
-.steps li{border-top:3px solid var(--ink);padding-top:18px}
-.steps li::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-weight:800;font-size:40px;display:block;line-height:1;margin-bottom:8px}
-.steps h3{font-family:var(--display);text-transform:uppercase;font-size:24px;margin:0 0 6px}
-.steps p{margin:0;color:var(--muted)}
-.price{margin:56px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:17px}
-.price b{font-family:var(--display);text-transform:uppercase;font-size:22px;margin-right:8px}
-.price a{font-weight:600;text-underline-offset:4px}
-
 /* ---------- About ---------- */
 .wwh{margin:32px 0}
 .wwh div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid #d9dcdf}
@@ -170,6 +159,8 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .contact{background:var(--ink);color:var(--on-dark);text-align:center}
 .contact .kicker,.contact .lead{color:var(--on-dark-muted)}
 .contact .lead{margin:0 auto 36px}
+.contact .price{margin:0 auto;max-width:52ch;font-size:17px;color:var(--on-dark)}
+.contact .price b{font-family:var(--display);text-transform:uppercase;font-size:22px;margin-right:8px}
 .contact .mail{display:block;margin:22px 0 0;color:var(--on-dark-muted);font-size:15px}
 .contact .mail a{color:var(--on-dark)}
 .contact .ph-text{background:#15191d;color:var(--on-dark-muted);border-color:#5f666d;max-width:640px;margin:40px auto 0;text-align:left}

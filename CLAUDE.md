@@ -25,7 +25,7 @@ Its only job: get qualified athletes to book a free intro call.
 - Black & white only. No accent colour.
 - Headings: Barlow Condensed (600/800), uppercase. Body: Inter (400/500/600).
 - Fonts are **self-hosted** in /assets/fonts – never load from Google Fonts (GDPR: sends visitor IP to Google).
-- Sections in order: hero (full-bleed photo/video) → stat band → who it's for → what's included → statement band → how it works → about → contact.
+- Sections in order: hero (full-bleed photo/video) → stat band → who it's for → what's included → statement band → about → contact.
 - The draft's JS language toggle is replaced by two real pages; the ET/EN switch is a plain link between them.
 
 ## Content rules
