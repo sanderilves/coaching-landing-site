@@ -175,7 +175,9 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .contact-form .btn{justify-self:start;cursor:pointer;font-family:inherit}
 .contact-form .btn:disabled{opacity:.6;cursor:wait}
 .form-error{width:100%;box-sizing:border-box;margin:20px 0 0;padding:20px 24px;border:1px solid rgba(255,255,255,.2);text-align:center;font-size:17px}
-.form-success{width:100%;text-align:center;margin:32px auto 0;font-size:20px;color:#fff}
+.contact.is-sent{display:flex;flex-direction:column;justify-content:center}
+.contact.is-sent > .wrap{width:100%;box-sizing:border-box}
+.form-success{width:100%;text-align:center;margin-inline:auto;margin-bottom:0}
 .form-success:focus{outline:none}
 .form-error:empty{display:none}
 .form-error a{color:var(--on-dark)}

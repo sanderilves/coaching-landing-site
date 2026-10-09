@@ -49,12 +49,23 @@ if (form) {
     });
   });
 
-  // Success: the status line takes the form's place in the same wrapper.
+  // Success: the thank-you line replaces the kicker, heading and form.
+  // The section keeps its height so the page doesn't jump.
   const showSuccess = () => {
-    form.remove();
-    status.className = 'form-success';
-    status.textContent = 'Aitäh! Vastan sulle 1–2 päeva jooksul.';
-    status.focus();
+    const section = form.closest('.contact');
+    section.style.minHeight = `${section.offsetHeight}px`;
+    section.classList.add('is-sent');
+    section.querySelector('.kicker').hidden = true;
+    section.querySelector('#kontakt-title').hidden = true;
+
+    const thanks = document.createElement('h2');
+    thanks.className = 'display form-success';
+    thanks.id = 'kontakt-success';
+    thanks.tabIndex = -1;
+    thanks.textContent = 'Aitäh! Vastan sulle 1–2 päeva jooksul.';
+    form.closest('.contact-form-wrap').replaceWith(thanks);
+    section.setAttribute('aria-labelledby', thanks.id);
+    thanks.focus();
   };
 
   form.addEventListener('submit', async (event) => {
