@@ -159,15 +159,11 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 
 /* ---------- Contact ---------- */
 .contact{background:var(--ink);color:var(--on-dark);text-align:center}
-.contact .kicker,.contact .lead{color:var(--on-dark-muted)}
+.contact .kicker{color:var(--on-dark-muted)}
 .contact h2{text-wrap:balance}
-.contact .lead{margin:0 auto 36px}
-.contact .price{margin:32px auto 0;max-width:52ch;font-size:17px;color:var(--on-dark)}
-.contact .price b{font-family:var(--display);text-transform:uppercase;font-size:22px;margin-right:8px}
 
 /* Contact form (Web3Forms) */
-.form-title{font-family:var(--display);text-transform:uppercase;font-size:26px;margin:72px 0 20px}
-.contact-form{display:grid;gap:18px;max-width:640px;margin:0 auto;text-align:left}
+.contact-form{display:grid;gap:18px;max-width:640px;margin:40px auto 0;text-align:left}
 .field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
 .field input,.field textarea{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--on-dark);background:transparent;border:1px solid #8a9096;border-radius:0;padding:12px 14px}
 .field textarea{min-height:140px;resize:vertical}

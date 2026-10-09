@@ -1,7 +1,7 @@
 # Coaching landing page
 
 One-page bilingual (ET primary / EN) landing page selling Sander's one-to-one triathlon coaching in Estonia.
-Its only job: get qualified athletes to book a free intro call.
+Its only job: get qualified athletes to get in touch.
 
 ## Current phase
 - Building the Estonian site only. EN (/en/) is paused: don't create or update it, hide the ET/EN switch, and leave out hreflang en tags until EN is built. When EN starts, mirror ET exactly.
@@ -43,13 +43,13 @@ Its only job: get qualified athletes to book a free intro call.
 - Domain not decided: use `https://DOMAIN.TODO` everywhere so it's a single find-and-replace.
 
 ## Contact & privacy
-- Primary CTA: Calendly (separate coaching event) – URL is TODO.
+- Primary CTA: the contact form. No Calendly for now.
 - Contact form: Web3Forms (plain POST, enhanced with fetch in assets/js/main.js). Fields: name, email, message, required consent checkbox, privacy note. No health data. Access key is TODO.
 - Email: sander.ilves@hotmail.com, shown as a mailto link in the footer.
 - No cookies, no tracking. Analytics only if cookieless, and only when Sander asks.
 
 ## Open decisions (ask, don't assume)
-Domain · hosting · Calendly URL · analytics · photos · Sander's race background copy
+Domain · hosting · analytics · photos · Sander's race background copy
 
 ## Before every commit
 - Both pages updated and in sync.
