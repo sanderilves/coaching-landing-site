@@ -91,10 +91,6 @@ h2.display em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--
 .lead{font-size:18px;color:var(--muted);max-width:48ch;margin:0 0 28px}
 .lead.tight{margin-bottom:20px}
 
-/* Placeholder for missing copy – remove when real content arrives */
-.ph-text{background:var(--soft);border-left:3px dashed #8a9096;padding:14px 18px;color:var(--muted);font-size:14px;margin:0 0 24px}
-.alt .ph-text{background:#e9ebed}
-
 /* ---------- Hero (full-bleed photo/video) ---------- */
 .hero{position:relative;padding:0;color:var(--on-dark);background:#1b2329}
 .hero-img{display:block;width:100%;height:62vh;max-height:560px;object-fit:cover;object-position:50% 20%}

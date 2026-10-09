@@ -49,7 +49,7 @@ Its only job: get qualified athletes to get in touch.
 - No cookies, no tracking. Analytics only if cookieless, and only when Sander asks.
 
 ## Open decisions (ask, don't assume)
-Domain · hosting · analytics · photos · Sander's race background copy
+Domain · hosting · analytics · photos
 
 ## Before every commit
 - Both pages updated and in sync.
