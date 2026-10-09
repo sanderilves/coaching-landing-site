@@ -170,7 +170,11 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .form-note{margin:0;font-size:13px;color:var(--on-dark-muted)}
 .contact-form .btn{justify-self:start;cursor:pointer;font-family:inherit}
 .contact-form .btn:disabled{opacity:.6;cursor:wait}
-.form-status{max-width:640px;margin:20px auto 0;text-align:left;font-size:17px}
+.form-status{max-width:640px;box-sizing:border-box;margin:20px auto 0;padding:20px 24px;border:1px solid rgba(255,255,255,.2);text-align:center;font-size:17px}
+.form-success{display:flex;flex-direction:column;justify-content:center;max-width:640px;box-sizing:border-box;margin:32px auto 0;padding:48px 24px;border:1px solid rgba(255,255,255,.2);text-align:center}
+.form-success:focus{outline:none}
+.form-success__title{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:40px;line-height:1;color:var(--on-dark);margin:0 0 8px}
+.form-success__text{font-size:18px;color:rgba(255,255,255,.85);margin:0}
 .form-status:empty{display:none}
 .form-status a{color:var(--on-dark)}
 
