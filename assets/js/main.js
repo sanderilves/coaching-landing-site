@@ -49,20 +49,12 @@ if (form) {
     });
   });
 
+  // Success: the status line takes the form's place in the same wrapper.
   const showSuccess = () => {
-    const success = document.createElement('div');
-    success.className = 'form-success';
-    success.setAttribute('role', 'status');
-    success.setAttribute('aria-live', 'polite');
-    success.tabIndex = -1;
-    success.innerHTML =
-      '<p class="form-success__title">Aitäh!</p>' +
-      '<p class="form-success__text">Sain sinu sõnumi kätte. Vastan sulle 1–2 päeva jooksul.</p>';
-
-    // Keep the section height: the block takes the form's place and size.
-    success.style.minHeight = `${form.offsetHeight}px`;
-    form.replaceWith(success);
-    success.focus();
+    form.remove();
+    status.className = 'form-success';
+    status.textContent = 'Aitäh! Vastan sulle 1–2 päeva jooksul.';
+    status.focus();
   };
 
   form.addEventListener('submit', async (event) => {
