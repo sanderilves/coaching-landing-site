@@ -44,7 +44,7 @@ Its only job: get qualified athletes to get in touch.
 
 ## Contact & privacy
 - Primary CTA: the contact form. No Calendly for now.
-- Contact form: Web3Forms (plain POST, enhanced with fetch in assets/js/main.js). Fields: name, email, message, required consent checkbox, privacy note. No health data. Access key is TODO.
+- Contact form: Web3Forms (plain POST, enhanced with fetch in assets/js/main.js). Fields: name, email, message, required consent checkbox, privacy note. No health data. Access key is set in index.html (public by design – Web3Forms keys only allow sending to the owner's inbox).
 - Email: sander.ilves@hotmail.com, shown as a mailto link in the footer.
 - No cookies, no tracking. Analytics only if cookieless, and only when Sander asks.
 
