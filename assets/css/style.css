@@ -123,10 +123,10 @@ h2.display em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--
 .stat span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted)}
 
 /* ---------- Split (media + text) ---------- */
-.split{display:grid;gap:48px;align-items:center}
+.split{display:grid;gap:48px;align-items:start}
 @media (min-width:900px){.split{grid-template-columns:1fr 1fr}.split.rev .media{order:2}}
 /* Text column starts at the photo's top edge */
-@media (min-width:900px){.split.top{align-items:start}.split.top .kicker{margin-top:0;line-height:1;margin-bottom:18px}}
+@media (min-width:900px){.split .kicker{margin-top:0;line-height:1;margin-bottom:18px}}
 .media{aspect-ratio:4/5;margin:0}
 .media img{display:block;width:100%;height:100%;object-fit:cover}
 /* Striped placeholder until a real photo exists */
