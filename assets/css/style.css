@@ -161,13 +161,29 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .contact{background:var(--ink);color:var(--on-dark);text-align:center}
 .contact .kicker,.contact .lead{color:var(--on-dark-muted)}
 .contact .lead{margin:0 auto 36px}
-.contact .price{margin:0 auto;max-width:52ch;font-size:17px;color:var(--on-dark)}
+.contact .price{margin:32px auto 0;max-width:52ch;font-size:17px;color:var(--on-dark)}
 .contact .price b{font-family:var(--display);text-transform:uppercase;font-size:22px;margin-right:8px}
-.contact .mail{display:block;margin:22px 0 0;color:var(--on-dark-muted);font-size:15px}
-.contact .mail a{color:var(--on-dark)}
-.contact .ph-text{background:#15191d;color:var(--on-dark-muted);border-color:#5f666d;max-width:640px;margin:40px auto 0;text-align:left}
+
+/* Contact form (Web3Forms) */
+.form-title{font-family:var(--display);text-transform:uppercase;font-size:26px;margin:72px 0 20px}
+.contact-form{display:grid;gap:18px;max-width:640px;margin:0 auto;text-align:left}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.field input,.field textarea{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--on-dark);background:transparent;border:1px solid #8a9096;border-radius:0;padding:12px 14px}
+.field textarea{min-height:140px;resize:vertical}
+.field ::placeholder{color:#8a9096;opacity:1}
+.field input:focus-visible,.field textarea:focus-visible{border-color:var(--on-dark)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.consent input{flex-shrink:0;width:20px;height:20px;margin:2px 0 0;accent-color:var(--on-dark)}
+.form-note{margin:0;font-size:13px;color:var(--on-dark-muted)}
+.contact-form .btn{justify-self:start;cursor:pointer;font-family:inherit}
+.contact-form .btn:disabled{opacity:.6;cursor:wait}
+.form-status{max-width:640px;margin:20px auto 0;text-align:left;font-size:17px}
+.form-status:empty{display:none}
+.form-status a{color:var(--on-dark)}
 
 /* ---------- Footer ---------- */
 .site-footer{background:var(--ink);color:#8a9096;font-size:13px;letter-spacing:.06em;border-top:1px solid var(--dark-line)}
-.site-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:24px 20px}
+.site-footer .wrap{display:flex;flex-direction:column;gap:8px;padding:24px 20px}
+@media (min-width:640px){.site-footer .wrap{flex-direction:row;justify-content:space-between}}
+.site-footer a{color:var(--on-dark)}
 .site-footer p{margin:0}

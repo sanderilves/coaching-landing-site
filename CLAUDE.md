@@ -43,12 +43,13 @@ Its only job: get qualified athletes to book a free intro call.
 - Domain not decided: use `https://DOMAIN.TODO` everywhere so it's a single find-and-replace.
 
 ## Contact & privacy
-- Primary CTA: Calendly (separate coaching event) – URL is TODO. Secondary: mailto – address is TODO.
-- Contact form: NOT decided. Keep a marked placeholder only. Do not build one or pick a provider.
+- Primary CTA: Calendly (separate coaching event) – URL is TODO.
+- Contact form: Web3Forms (plain POST, enhanced with fetch in assets/js/main.js). Fields: name, email, message, required consent checkbox, privacy note. No health data. Access key is TODO.
+- Email: sander.ilves@hotmail.com, shown as a mailto link in the footer.
 - No cookies, no tracking. Analytics only if cookieless, and only when Sander asks.
 
 ## Open decisions (ask, don't assume)
-Domain · hosting · Calendly URL · email · contact form · analytics · photos · Sander's race background copy
+Domain · hosting · Calendly URL · analytics · photos · Sander's race background copy
 
 ## Before every commit
 - Both pages updated and in sync.

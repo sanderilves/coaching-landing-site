@@ -35,6 +35,7 @@
 <link rel="preload" href="assets/fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#sisu">Liigu sisu juurde</a>
@@ -124,19 +125,45 @@
       <p class="kicker">Järgmine samm</p>
       <h2 class="display" id="kontakt-title">Alustame kõnest.</h2>
       <p class="lead">30 minutit, tasuta ja ilma kohustusteta. Räägime, kas ja kuidas saan sind aidata.</p>
+      <!-- TODO: Calendly URL (separate coaching event) – replace href="#TODO-calendly" -->
+      <a class="btn" href="#TODO-calendly">Broneeri tasuta tutvumiskõne</a>
       <p class="price"><b>Hind?</b>Iga sportlane on erinev – teen sulle isikliku pakkumise.</p>
-      <!-- TODO: contact email – replace TODO@example.com on both pages -->
-      <p class="mail">või kirjuta: <a href="mailto:TODO@example.com">TODO@example.com</a></p>
-      <!-- TODO: contact form – not decided (provider + GDPR consent). Do not build until decided. -->
-      <p class="ph-text"><b>PLACEHOLDER – KONTAKTIVORM:</b> otsus tegemata. Kui lisandub: nimi, e-post, sõnum + GDPR nõusolek.</p>
+
+      <h3 class="form-title" id="vorm-title">Või kirjuta mulle</h3>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-labelledby="vorm-title">
+        <!-- TODO: Web3Forms access key – replace YOUR_ACCESS_KEY -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Uus päring – Ilves Coaching">
+        <input type="hidden" name="from_name" value="Ilves Coaching koduleht">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+        <div class="field">
+          <label for="f-name">Nimi</label>
+          <input id="f-name" type="text" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">E-post</label>
+          <input id="f-email" type="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-message">Sõnum</label>
+          <textarea id="f-message" name="message" rows="5" placeholder="Räägi lühidalt oma eesmärgist ja kogemusest." required></textarea>
+        </div>
+        <div class="consent">
+          <input id="f-consent" type="checkbox" name="consent" value="Jah" required>
+          <label for="f-consent">Nõustun, et minu andmeid kasutatakse ainult päringule vastamiseks.</label>
+        </div>
+        <p class="form-note">Saadan sinu nime, e-posti ja sõnumi ainult selleks, et sulle vastata. Vorm kasutab teenust Web3Forms. Palun ära jaga siin terviseandmeid.</p>
+        <button class="btn" type="submit">Saada sõnum</button>
+      </form>
+      <p class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 Sander · World Triathlon Level 1 treener</p>
-    <p>Eesti</p>
+    <p>© 2026 Ilves Coaching · World Triathlon Level 1 treener</p>
+    <p><a href="mailto:sander.ilves@hotmail.com">sander.ilves@hotmail.com</a></p>
   </div>
 </footer>
 </body>
