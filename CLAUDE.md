@@ -3,6 +3,9 @@
 One-page bilingual (ET primary / EN) landing page selling Sander's one-to-one triathlon coaching in Estonia.
 Its only job: get qualified athletes to book a free intro call.
 
+## Current phase
+- Building the Estonian site only. EN (/en/) is paused: don't create or update it, hide the ET/EN switch, and leave out hreflang en tags until EN is built. When EN starts, mirror ET exactly.
+
 ## Stack
 - Plain HTML + CSS, minimal vanilla JS. No frameworks, no build tools, no npm dependencies in production.
 - Mobile-first, fast, accessible (semantic HTML, alt text, visible focus states, AA contrast).
@@ -22,7 +25,7 @@ Its only job: get qualified athletes to book a free intro call.
 - Black & white only. No accent colour.
 - Headings: Barlow Condensed (600/800), uppercase. Body: Inter (400/500/600).
 - Fonts are **self-hosted** in /assets/fonts – never load from Google Fonts (GDPR: sends visitor IP to Google).
-- Sections in order: hero (full-bleed photo/video) → stat band → distance strip → who it's for → what's included → statement band → how it works → about → contact.
+- Sections in order: hero (full-bleed photo/video) → stat band → who it's for → what's included → statement band → how it works → about → contact.
 - The draft's JS language toggle is replaced by two real pages; the ET/EN switch is a plain link between them.
 
 ## Content rules
