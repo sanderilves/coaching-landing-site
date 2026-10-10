@@ -25,14 +25,15 @@ Its only job: get qualified athletes to get in touch.
 - Black & white only. No accent colour.
 - Headings: Barlow Condensed (600/800), uppercase. Body: Inter (400/500/600).
 - Fonts are **self-hosted** in /assets/fonts – never load from Google Fonts (GDPR: sends visitor IP to Google).
-- Sections in order: hero (full-bleed photo/video) → stat band → who it's for → what's included → statement band → about → contact.
+- Sections in order: hero (full-bleed photo/video) → stat band → who it's for → what's included → statement band → about → testimonial → contact.
 - The draft's JS language toggle is replaced by two real pages; the ET/EN switch is a plain link between them.
 
 ## Content rules
 - ET and EN must stay in sync: same sections, same order, same CTAs. Every change is made on both pages.
 - Estonian written natively, informal "sina". Flag unsure sport terms with an HTML comment `<!-- CHECK TERM: ... -->`.
 - No pricing anywhere. Pricing questions → "personal offer, contact me".
-- Only qualification: World Triathlon Level 1 Coach. Don't add other claims, affiliations or testimonials.
+- Only qualification: World Triathlon Level 1 Coach. Don't add other claims or affiliations.
+- Real testimonials only, with written consent; any edited version approved by the athlete.
 - No guaranteed results, no health/medical claims.
 - Mark every missing item with `<!-- TODO: ... -->` and a visible placeholder.
 
@@ -60,6 +61,6 @@ Domain · hosting · analytics · photos
 - Preview runs on GitHub Pages: https://sanderilves.github.io/coaching-landing-site/ (served from a subpath).
 - Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/` and `assets/` are published – never `reference/` or the `.md` files. New site files/folders must be added to the workflow's copy step.
 - All links to pages and assets must be relative (no leading "/"), or they break under the subpath.
-- style.css and main.js are linked with a version query (`?v=4`). Bump the number on every change to either file, so browsers never run a cached old file.
+- style.css and main.js are linked with a version query (`?v=6`). Bump the number on every change to either file, so browsers never run a cached old file.
 - Both pages carry `<meta name="robots" content="noindex">` while in preview. Remove it only when the site goes live on its real domain.
 - The repo is public: never commit secrets, personal data or unpublished private material.
