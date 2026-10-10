@@ -62,7 +62,7 @@ if (form) {
     thanks.className = 'display form-success';
     thanks.id = 'kontakt-success';
     thanks.tabIndex = -1;
-    thanks.textContent = 'Aitäh! Vastan sulle 1–2 päeva jooksul.';
+    thanks.textContent = 'Aitäh! Vastan sulle hiljemalt kahe päeva jooksul.';
     form.closest('.contact-form-wrap').replaceWith(thanks);
     section.setAttribute('aria-labelledby', thanks.id);
     thanks.focus();

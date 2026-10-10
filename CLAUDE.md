@@ -62,6 +62,6 @@ Domain · hosting · analytics · photos
 - Preview runs on GitHub Pages: https://sanderilves.github.io/coaching-landing-site/ (served from a subpath).
 - Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/` and `assets/` are published – never `reference/` or the `.md` files. New site files/folders must be added to the workflow's copy step.
 - All links to pages and assets must be relative (no leading "/"), or they break under the subpath.
-- style.css and main.js are linked with a version query (`?v=8`). Bump the number on every change to either file, so browsers never run a cached old file.
+- style.css and main.js are linked with a version query (`?v=9`). Bump the number on every change to either file, so browsers never run a cached old file.
 - Both pages carry `<meta name="robots" content="noindex">` while in preview. Remove it only when the site goes live on its real domain.
 - The repo is public: never commit secrets, personal data or unpublished private material.
