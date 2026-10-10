@@ -103,3 +103,99 @@ if (form) {
     }
   });
 }
+
+// Testimonials: the layout follows the number of cards.
+// 1 = single centred card, 2–3 = grid on desktop, 4+ = carousel on desktop.
+// With 2+ cards it is a swipe carousel below 900px. No autoplay.
+const track = document.querySelector('.t-cards');
+
+if (track) {
+  const cards = [...track.querySelectorAll('.t-card')];
+  const n = cards.length;
+
+  if (n === 1) {
+    track.classList.add('is-single');
+  } else if (n > 1) {
+    track.classList.add(n <= 3 ? 'is-grid' : 'is-carousel');
+    track.style.setProperty('--cols', n);
+
+    const section = track.closest('section');
+    cards.forEach((card, i) => {
+      card.setAttribute('role', 'group');
+      card.setAttribute('aria-roledescription', 'slide');
+      card.setAttribute('aria-label', `${i + 1} / ${n}`);
+    });
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const chevron = (d) =>
+      `<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>`;
+    const button = (label, html, className) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', label);
+      if (html) b.innerHTML = html;
+      if (className) b.className = className;
+      return b;
+    };
+
+    const nav = document.createElement('div');
+    nav.className = 't-nav';
+    const prev = button('Eelmine tagasiside', chevron('M12.5 4l-6 6 6 6'));
+    const next = button('Järgmine tagasiside', chevron('M7.5 4l6 6-6 6'));
+    const dotBox = document.createElement('span');
+    dotBox.style.display = 'contents';
+    nav.append(prev, dotBox, next);
+    track.after(nav);
+
+    let dots = [];
+    let positions = 1; // how many scroll stops there are (n minus cards visible, plus one)
+    let active = 0;
+
+    const step = () => (n > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : 1);
+
+    const goTo = (i) => {
+      if (i < 0 || i >= positions) return;
+      track.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    };
+
+    const setActive = (i) => {
+      active = i;
+      dots.forEach((dot, j) => dot.setAttribute('aria-current', j === i ? 'true' : 'false'));
+      prev.setAttribute('aria-disabled', i === 0 ? 'true' : 'false');
+      next.setAttribute('aria-disabled', i === positions - 1 ? 'true' : 'false');
+    };
+
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const visible = max <= 1 ? n : Math.round(track.clientWidth / step());
+      const count = Math.max(1, n - visible + 1);
+      nav.hidden = count === 1; // e.g. the 2–3 card grid on desktop
+      if (nav.hidden) section.removeAttribute('aria-roledescription');
+      else section.setAttribute('aria-roledescription', 'carousel');
+
+      if (count !== positions || !dots.length) {
+        positions = count;
+        dots = Array.from({ length: count }, (_, i) => {
+          const dot = button(`Näita tagasisidet ${i + 1}`, '', 't-dot');
+          dot.addEventListener('click', () => goTo(i));
+          return dot;
+        });
+        dotBox.replaceChildren(...dots);
+      }
+      const i = track.scrollLeft >= max - 2 && max > 1 ? positions - 1 : Math.round(track.scrollLeft / step());
+      setActive(Math.min(Math.max(i, 0), positions - 1));
+    };
+
+    prev.addEventListener('click', () => goTo(active - 1));
+    next.addEventListener('click', () => goTo(active + 1));
+
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    track.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+  }
+}

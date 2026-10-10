@@ -147,15 +147,36 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .statement .display{font-size:clamp(40px,8vw,92px);font-weight:800}
 .statement p:not(.display){margin:18px auto 0;max-width:52ch;font-size:18px}
 
-/* Testimonial */
-.testimonial-inner{max-width:720px;margin:0 auto}
-.testimonial h2{text-wrap:balance}
-.testimonial-quote{margin:32px 0 0}
-.testimonial-quote blockquote{margin:0;padding-left:24px;border-left:3px solid var(--ink);font-size:17px;line-height:1.7}
-@media (min-width:760px){.testimonial-quote blockquote{font-size:19px}}
-.testimonial-quote blockquote p{margin:0 0 1em;text-wrap:pretty}
-.testimonial-quote blockquote p:last-child{margin-bottom:0}
-.testimonial-quote figcaption{margin-top:20px;padding-left:27px;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.02em;line-height:1.2}
+/* Testimonials – main.js sets .is-single (1 card), .is-grid (2–3) or .is-carousel (4+) */
+.testimonials h2{text-align:center}
+.t-cards{margin-top:48px}
+.t-card{display:flex;flex-direction:column;margin:0;background:var(--bg);border:1px solid var(--line);padding:24px}
+.t-card__headline{margin:0 0 16px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:24px;line-height:1.05}
+.t-card__text{margin:0;padding-left:16px;border-left:2px solid var(--ink);font-size:16px;line-height:1.65;color:#3a3f44}
+.t-card__text p{margin:0 0 1em;text-wrap:pretty}
+.t-card__text p:last-child{margin-bottom:0}
+.t-card__name{margin-top:auto;padding-top:20px;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:18px;letter-spacing:.02em;line-height:1.2}
+.t-cards.is-single{max-width:760px;margin-inline:auto}
+
+/* Carousel track: 2+ cards below 900px, 4+ cards everywhere */
+.t-cards.is-grid,.t-cards.is-carousel{position:relative;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.t-cards.is-grid::-webkit-scrollbar,.t-cards.is-carousel::-webkit-scrollbar{display:none}
+.t-cards.is-grid > .t-card,.t-cards.is-carousel > .t-card{flex:0 0 85%;scroll-snap-align:start}
+@media (prefers-reduced-motion:no-preference){.t-cards{scroll-behavior:smooth}}
+.t-nav{display:flex;justify-content:center;align-items:center;margin-top:16px}
+.t-nav[hidden]{display:none}
+.t-nav button{display:grid;place-items:center;width:44px;height:44px;padding:0;background:none;border:0;color:var(--ink);cursor:pointer}
+.t-nav [aria-disabled="true"]{opacity:.3;cursor:default}
+.t-dot::before{content:"";width:10px;height:10px;border:2px solid var(--ink);border-radius:50%}
+.t-dot[aria-current="true"]::before{background:var(--ink)}
+
+@media (min-width:900px){
+  .t-card{padding:32px}
+  .t-card__headline{font-size:28px}
+  .t-cards.is-grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:24px;overflow:visible}
+  .t-cards.is-carousel{gap:24px}
+  .t-cards.is-carousel > .t-card{flex-basis:calc((100% - 48px) / 3)}
+}
 
 /* ---------- About ---------- */
 .wwh{margin:32px 0}
