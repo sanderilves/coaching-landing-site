@@ -68,5 +68,5 @@ Analytics · photos
 - GitHub Pages with the custom domain ilvescoaching.ee (CNAME file in the repo root; custom domain + "Enforce HTTPS" set in the repo's Pages settings).
 - Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/`, `assets/`, `robots.txt`, `sitemap.xml` and `CNAME` are published – never the `.md` files. New site files/folders must be added to the workflow's copy step.
 - Keep links to pages and assets relative (no leading "/"), so local file previews keep working.
-- style.css and main.js are linked with a version query (`?v=15`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
+- style.css and main.js are linked with a version query (`?v=16`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
 - The repo is public: never commit secrets, personal data or unpublished private material.
