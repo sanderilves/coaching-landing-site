@@ -6,7 +6,7 @@ Its only job: get qualified athletes to get in touch.
 ## Current phase
 - Both languages are live: ET at /index.html, EN at /en/index.html, linked by the ET / EN switch in the header.
 - The pages mirror each other: same sections, order, layout, classes, images and form. Only text, lang, meta, section/heading IDs and asset paths (../ on EN) differ.
-- Intentional EN-only extras: the lynx line under About (`.about-note`) and "Translated from Estonian" under each testimonial name (`.t-card__note`).
+- EN testimonials are translations (approved by the athletes), shown without a "translated" label.
 - Every change is made on both pages. UI strings used by main.js (form errors, success, carousel labels) live in the `STRINGS` object, keyed by language.
 
 ## Stack
@@ -65,6 +65,6 @@ Domain · hosting · analytics · photos
 - Preview runs on GitHub Pages: https://sanderilves.github.io/coaching-landing-site/ (served from a subpath).
 - Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/` and `assets/` are published – never `reference/` or the `.md` files. New site files/folders must be added to the workflow's copy step.
 - All links to pages and assets must be relative (no leading "/"), or they break under the subpath.
-- style.css and main.js are linked with a version query (`?v=11`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
+- style.css and main.js are linked with a version query (`?v=12`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
 - Both pages carry `<meta name="robots" content="noindex">` while in preview. Remove it only when the site goes live on its real domain.
 - The repo is public: never commit secrets, personal data or unpublished private material.

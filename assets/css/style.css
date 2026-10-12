@@ -155,7 +155,6 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .t-card__text p{margin:0 0 1em;text-wrap:pretty}
 .t-card__text p:last-child{margin-bottom:0}
 .t-card__name{margin-top:auto;padding-top:20px;font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:18px;letter-spacing:.02em;line-height:1.2}
-.t-card__note{display:block;margin-top:4px;font-family:var(--body);font-weight:400;text-transform:none;letter-spacing:0;font-size:13px;color:var(--muted)}
 .t-cards.is-single{max-width:760px;margin-inline:auto}
 
 /* Carousel track: 2+ cards below 900px, 4+ cards everywhere */
@@ -179,7 +178,6 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 }
 
 /* ---------- About ---------- */
-.about-note{margin:0 0 20px;font-size:15px;font-style:italic;color:var(--muted)}
 .wwh{margin:32px 0}
 .wwh div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid #d9dcdf}
 .wwh dt{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase}
