@@ -20,7 +20,10 @@ Its only job: get qualified athletes to get in touch.
 /assets/css/style.css
 /assets/js/main.js   only if needed (e.g. mobile nav)
 /assets/fonts/       self-hosted woff2
-/assets/img/         photos (webp + width/height set), favicon, og-image
+/assets/img/         photos (webp + width/height set), logo/
+/assets/img/favicon/ favicon.ico, favicon.svg, apple-touch-icon.png (brand kit only)
+/assets/img/social/  og-image-et.png, og-image-en.png (1200×630, brand kit). Bump their ?v= in og:image when replaced, so link previews refresh.
+/favicon.ico         copy of the brand favicon at the root (some apps only request it there)
 /robots.txt, /sitemap.xml, /CNAME
 ```
 
@@ -65,5 +68,5 @@ Analytics · photos
 - GitHub Pages with the custom domain ilvescoaching.ee (CNAME file in the repo root; custom domain + "Enforce HTTPS" set in the repo's Pages settings).
 - Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/`, `assets/`, `robots.txt`, `sitemap.xml` and `CNAME` are published – never the `.md` files. New site files/folders must be added to the workflow's copy step.
 - Keep links to pages and assets relative (no leading "/"), so local file previews keep working.
-- style.css and main.js are linked with a version query (`?v=14`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
+- style.css and main.js are linked with a version query (`?v=15`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
 - The repo is public: never commit secrets, personal data or unpublished private material.
