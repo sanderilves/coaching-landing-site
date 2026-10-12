@@ -1,6 +1,6 @@
-# Preview deploy to GitHub Pages. Publishes only the site files –
-# reference/, CLAUDE.md and KICKOFF-PROMPT.md are never deployed.
-name: Deploy preview to GitHub Pages
+# Deploy to GitHub Pages (custom domain ilvescoaching.ee). Publishes only the
+# site files – CLAUDE.md, KICKOFF-PROMPT.md and other repo files are never deployed.
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -R index.html en assets _site/
+          cp -R index.html en assets robots.txt sitemap.xml CNAME _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

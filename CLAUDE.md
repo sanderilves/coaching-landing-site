@@ -21,10 +21,10 @@ Its only job: get qualified athletes to get in touch.
 /assets/js/main.js   only if needed (e.g. mobile nav)
 /assets/fonts/       self-hosted woff2
 /assets/img/         photos (webp + width/height set), favicon, og-image
-/reference/          design drafts – NOT deployed, do not link
+/robots.txt, /sitemap.xml, /CNAME
 ```
 
-## Design (source: reference/draft-v3.html)
+## Design
 - Black & white only. No accent colour.
 - Headings: Barlow Condensed (600/800), uppercase. Body: Inter (400/500/600).
 - Fonts are **self-hosted** in /assets/fonts – never load from Google Fonts (GDPR: sends visitor IP to Google).
@@ -45,7 +45,7 @@ Its only job: get qualified athletes to get in touch.
 - Unique `<title>` and meta description, canonical URL, hreflang `et`, `en`, `x-default` (→ ET).
 - Open Graph + Twitter card tags, og-image 1200×630.
 - Keywords: ET "triatloni treener", "triatloni treening", "individuaalne treening"; EN "triathlon coach Estonia", "triathlon coaching Tallinn".
-- Domain not decided: use `https://DOMAIN.TODO` everywhere so it's a single find-and-replace.
+- Domain: https://ilvescoaching.ee (ET at /, EN at /en/). Canonical, hreflang, og:url and image URLs use it; keep sitemap.xml in sync when pages are added.
 
 ## Contact & privacy
 - Primary CTA: the contact form. No Calendly for now.
@@ -54,17 +54,16 @@ Its only job: get qualified athletes to get in touch.
 - No cookies, no tracking. Analytics only if cookieless, and only when Sander asks.
 
 ## Open decisions (ask, don't assume)
-Domain · hosting · analytics · photos
+Analytics · photos
 
 ## Before every commit
 - Both pages updated and in sync.
 - Check at 375px and 1280px widths.
 - Valid HTML, no console errors, all images have alt + dimensions.
 
-## Preview hosting
-- Preview runs on GitHub Pages: https://sanderilves.github.io/coaching-landing-site/ (served from a subpath).
-- Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/` and `assets/` are published – never `reference/` or the `.md` files. New site files/folders must be added to the workflow's copy step.
-- All links to pages and assets must be relative (no leading "/"), or they break under the subpath.
-- style.css and main.js are linked with a version query (`?v=13`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
-- Both pages carry `<meta name="robots" content="noindex">` while in preview. Remove it only when the site goes live on its real domain.
+## Hosting
+- GitHub Pages with the custom domain ilvescoaching.ee (CNAME file in the repo root; custom domain + "Enforce HTTPS" set in the repo's Pages settings).
+- Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/`, `assets/`, `robots.txt`, `sitemap.xml` and `CNAME` are published – never the `.md` files. New site files/folders must be added to the workflow's copy step.
+- Keep links to pages and assets relative (no leading "/"), so local file previews keep working.
+- style.css and main.js are linked with a version query (`?v=14`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
 - The repo is public: never commit secrets, personal data or unpublished private material.
