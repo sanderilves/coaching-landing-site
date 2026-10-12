@@ -1,6 +1,37 @@
+// All UI text lives here, picked by <html lang>. ET and EN pages share this file.
+const STRINGS = {
+  et: {
+    nameMissing: 'Palun sisesta oma nimi.',
+    emailMissing: 'Palun sisesta oma e-posti aadress.',
+    emailInvalid: 'Palun kontrolli e-posti aadressi.',
+    consentMissing: 'Palun kinnita nõusolek.',
+    success: 'Aitäh! Vastan sulle hiljemalt kahe päeva jooksul.',
+    error: 'Midagi läks valesti. Kirjuta palun otse: ',
+    carousel: 'karussell',
+    slide: 'slaid',
+    prev: 'Eelmine tagasiside',
+    next: 'Järgmine tagasiside',
+    dot: (i) => `Näita tagasisidet ${i}`,
+  },
+  en: {
+    nameMissing: 'Please enter your name.',
+    emailMissing: 'Please enter your email address.',
+    emailInvalid: 'Please check your email address.',
+    consentMissing: 'Please confirm your consent.',
+    success: "Thank you! I'll reply within two days at the latest.",
+    error: 'Something went wrong. Please email me directly: ',
+    carousel: 'carousel',
+    slide: 'slide',
+    prev: 'Previous testimonial',
+    next: 'Next testimonial',
+    dot: (i) => `Show testimonial ${i}`,
+  },
+};
+const t = STRINGS[document.documentElement.lang] || STRINGS.et;
+
 // Contact form: send to Web3Forms with fetch so the page doesn't reload.
 // Without JS the form still works as a plain POST with the browser's own
-// `required` validation; with JS we validate ourselves, in Estonian.
+// `required` validation; with JS we validate ourselves, in the page language.
 const form = document.querySelector('.contact-form');
 
 if (form) {
@@ -11,12 +42,12 @@ if (form) {
   form.setAttribute('novalidate', '');
 
   const rules = [
-    [form.querySelector('#f-name'), (f) => (f.value.trim() ? '' : 'Palun sisesta oma nimi.')],
+    [form.querySelector('#f-name'), (f) => (f.value.trim() ? '' : t.nameMissing)],
     [form.querySelector('#f-email'), (f) => {
-      if (!f.value.trim()) return 'Palun sisesta oma e-posti aadress.';
-      return f.validity.typeMismatch ? 'Palun kontrolli e-posti aadressi.' : '';
+      if (!f.value.trim()) return t.emailMissing;
+      return f.validity.typeMismatch ? t.emailInvalid : '';
     }],
-    [form.querySelector('#f-consent'), (f) => (f.checked ? '' : 'Palun kinnita nõusolek.')],
+    [form.querySelector('#f-consent'), (f) => (f.checked ? '' : t.consentMissing)],
   ];
 
   // Error goes under the field: inside .field, or right after the consent row.
@@ -56,13 +87,13 @@ if (form) {
     section.style.minHeight = `${section.offsetHeight}px`;
     section.classList.add('is-sent');
     section.querySelector('.kicker').hidden = true;
-    section.querySelector('#kontakt-title').hidden = true;
+    section.querySelector('h2').hidden = true;
 
     const thanks = document.createElement('h2');
     thanks.className = 'display form-success';
-    thanks.id = 'kontakt-success';
+    thanks.id = 'form-success-title';
     thanks.tabIndex = -1;
-    thanks.textContent = 'Aitäh! Vastan sulle hiljemalt kahe päeva jooksul.';
+    thanks.textContent = t.success;
     form.closest('.contact-form-wrap').replaceWith(thanks);
     section.setAttribute('aria-labelledby', thanks.id);
     thanks.focus();
@@ -98,7 +129,7 @@ if (form) {
       const link = document.createElement('a');
       link.href = `mailto:${email}`;
       link.textContent = email;
-      status.replaceChildren('Midagi läks valesti. Kirjuta palun otse: ', link);
+      status.replaceChildren(t.error, link);
       button.disabled = false;
     }
   });
@@ -122,7 +153,7 @@ if (track) {
     const section = track.closest('section');
     cards.forEach((card, i) => {
       card.setAttribute('role', 'group');
-      card.setAttribute('aria-roledescription', 'slide');
+      card.setAttribute('aria-roledescription', t.slide);
       card.setAttribute('aria-label', `${i + 1} / ${n}`);
     });
 
@@ -140,8 +171,8 @@ if (track) {
 
     const nav = document.createElement('div');
     nav.className = 't-nav';
-    const prev = button('Eelmine tagasiside', chevron('M12.5 4l-6 6 6 6'));
-    const next = button('Järgmine tagasiside', chevron('M7.5 4l6 6-6 6'));
+    const prev = button(t.prev, chevron('M12.5 4l-6 6 6 6'));
+    const next = button(t.next, chevron('M7.5 4l6 6-6 6'));
     const dotBox = document.createElement('span');
     dotBox.style.display = 'contents';
     nav.append(prev, dotBox, next);
@@ -171,12 +202,12 @@ if (track) {
       const count = Math.max(1, n - visible + 1);
       nav.hidden = count === 1; // e.g. the 2–3 card grid on desktop
       if (nav.hidden) section.removeAttribute('aria-roledescription');
-      else section.setAttribute('aria-roledescription', 'carousel');
+      else section.setAttribute('aria-roledescription', t.carousel);
 
       if (count !== positions || !dots.length) {
         positions = count;
         dots = Array.from({ length: count }, (_, i) => {
-          const dot = button(`Näita tagasisidet ${i + 1}`, '', 't-dot');
+          const dot = button(t.dot(i + 1), '', 't-dot');
           dot.addEventListener('click', () => goTo(i));
           return dot;
         });

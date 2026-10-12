@@ -4,7 +4,10 @@ One-page bilingual (ET primary / EN) landing page selling Sander's one-to-one tr
 Its only job: get qualified athletes to get in touch.
 
 ## Current phase
-- Building the Estonian site only. EN (/en/) is paused: don't create or update it, hide the ET/EN switch, and leave out hreflang en tags until EN is built. When EN starts, mirror ET exactly.
+- Both languages are live: ET at /index.html, EN at /en/index.html, linked by the ET / EN switch in the header.
+- The pages mirror each other: same sections, order, layout, classes, images and form. Only text, lang, meta, section/heading IDs and asset paths (../ on EN) differ.
+- Intentional EN-only extras: the lynx line under About (`.about-note`) and "Translated from Estonian" under each testimonial name (`.t-card__note`).
+- Every change is made on both pages. UI strings used by main.js (form errors, success, carousel labels) live in the `STRINGS` object, keyed by language.
 
 ## Stack
 - Plain HTML + CSS, minimal vanilla JS. No frameworks, no build tools, no npm dependencies in production.
@@ -34,7 +37,7 @@ Its only job: get qualified athletes to get in touch.
 - No pricing anywhere. Pricing questions → "personal offer, contact me".
 - Only qualification: World Triathlon Level 1 Coach. Don't add other claims or affiliations.
 - Real testimonials only, with written consent; any edited version approved by the athlete.
-- Adding a testimonial = copy one `<figure class="t-card">` block inside `.t-cards`. main.js picks the layout from the card count: 1 = centred card, 2–3 = grid on desktop, 4+ = carousel (3 visible) on desktop; 2+ = swipe carousel below 900px.
+- Adding a testimonial = copy one `<figure class="t-card">` block inside `.t-cards` (on both pages; EN text needs the athlete's approval). main.js picks the layout from the card count: 1 = centred card, 2–3 = grid on desktop, 4+ = carousel (3 visible) on desktop; 2+ = swipe carousel below 900px.
 - No guaranteed results, no health/medical claims.
 - Mark every missing item with `<!-- TODO: ... -->` and a visible placeholder.
 
@@ -62,6 +65,6 @@ Domain · hosting · analytics · photos
 - Preview runs on GitHub Pages: https://sanderilves.github.io/coaching-landing-site/ (served from a subpath).
 - Deployed by `.github/workflows/pages.yml` on every push to `main`. Only `index.html`, `en/` and `assets/` are published – never `reference/` or the `.md` files. New site files/folders must be added to the workflow's copy step.
 - All links to pages and assets must be relative (no leading "/"), or they break under the subpath.
-- style.css and main.js are linked with a version query (`?v=10`). Bump the number on every change to either file, so browsers never run a cached old file.
+- style.css and main.js are linked with a version query (`?v=11`), the same number on both pages. Bump it on every change to either file, so browsers never run a cached old file.
 - Both pages carry `<meta name="robots" content="noindex">` while in preview. Remove it only when the site goes live on its real domain.
 - The repo is public: never commit secrets, personal data or unpublished private material.
