@@ -126,6 +126,8 @@ h2.display em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--
 .hero-sub{font-size:clamp(16px,1.6vw,21px);font-weight:400;line-height:1.5;color:rgba(255,255,255,.88);max-width:46ch;margin:16px 0 24px}
 .hero-price{margin:16px 0 0;font-size:15px;color:var(--on-dark)}
 .hero-lang{margin:4px 0 0;font-size:14px;color:var(--on-dark-muted)}
+/* Even line breaks, so a wrapped price or language line never leaves one word alone */
+.hero-price,.hero-lang{text-wrap:balance}
 @media (min-width:900px){
   .hero .wrap > *{max-width:58%}
   .hero h1{font-size:calc((min(100vw,var(--max)) - 40px) * .58 / 10.4)}

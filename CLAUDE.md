@@ -7,7 +7,7 @@ Its only job: get qualified athletes to get in touch.
 - **ET and EN are both live.** /index.html (ET, primary) and /en/index.html (EN) mirror each other exactly: same sections, order, layout and CTAs. Every change is made on both pages.
 - ET/EN switch = plain links in the header. Shared main.js picks UI strings by <html lang>.
 - Testimonials on EN are translations (no "translated" label); athletes approve translations.
-- **SEO work in progress** (audit 2026-10-12, score 60/100). Done: HTTPS enforced, Google Search Console + Bing Webmaster Tools, sitemap submitted. Next: Sprint 1 (see sprint1-handoff.md): hero/H1, CTA above fold, mobile nav, hero image sizes, JSON-LD.
+- **SEO work in progress** (audit 2026-10-12, score 60/100). Done: HTTPS enforced, Google Search Console + Bing Webmaster Tools, sitemap submitted. **Sprint 1 done (2026-10-26):** hero/H1, CTA above fold, mobile nav, hero image sizes, JSON-LD, meta, sitemap lastmod. Next: Sprint 2: "How it works", what's included, FAQ, E-E-A-T (credential link, race results), privacy page.
 
 ## Stack
 - Plain HTML + CSS, minimal vanilla JS. No frameworks, no build tools, no npm dependencies in production.
@@ -60,7 +60,7 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 - DNS at Zone: 4× A + 4× AAAA to GitHub Pages, CNAME www → sanderilves.github.io, TXT _github-pages-challenge-sanderilves and TXT google-site-verification (keep both permanently).
 - Relative asset paths; bump ?v= cache version on CSS/JS and og-image changes.
 - Live and indexable (no noindex). sitemap.xml (with lastmod) + robots.txt in root.
-- Repo notes (CLAUDE.md, handoff briefs, /reference/) must not be publicly served: exclude them via _config.yml, or keep handoff briefs uncommitted.
+- Repo notes (CLAUDE.md, handoff briefs, /reference/) are kept off the live site by the deploy workflow allowlist (.github/workflows/pages.yml copies only the listed site files into _site and adds .nojekyll), not by _config.yml – Jekyll never runs. Any new public file or folder (e.g. the privacy page) must be added to the workflow's copy list. The repo itself is public, so notes are still readable on GitHub.
 
 ## Contact & privacy
 - Primary CTA: contact form → #kontakt ("Võta ühendust" / "Get in touch"). No Calendly for now.
