@@ -37,9 +37,10 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 - Hero: H1 + primary CTA must be visible without scrolling at 375px and 1280px. Hero image: fetchpriority="high", correct `sizes`, never lazy-loaded.
 
 ## Positioning & content rules
-- Coaching is **mostly remote (online)**. Say "online" in the hero subline and in meta descriptions.
+- Coaching is mostly remote, but the word 'online' must not appear anywhere (visible text, meta, OG/Twitter, JSON-LD). Say it as ET 'asukohast sõltumata' / EN 'wherever you are'.
+- Language line under the price (no full stop): ET "Treening asukohast sõltumata, eesti ja inglise keeles" / EN "Coaching wherever you are, in Estonian and English".
 - H1: ET "Triatloni treener harrastussportlastele" / EN "Triathlon coaching for age-group athletes". "Ujumine. Ratas. Jooks." / "Swim. Bike. Run." is the eyebrow line.
-- **Pricing:** a single anchor line, "Alates X €/kuus · täpne pakkumine pärast tutvumisvestlust" / "From X €/month · exact offer after an intro chat". No package tables. (Decided 2026-10-26; replaces the earlier no-pricing rule.)
+- **Pricing:** a single anchor line, "Alates 100 €/kuu (täpne pakkumine personaalselt)" / "From €100/month (exact offer tailored to you)". No package tables. (Decided 2026-10-26; replaces the earlier no-pricing rule.)
 - ET and EN must stay in sync: same sections, same order, same CTAs. Every change is made on both pages.
 - Estonian written natively, informal "sina". Flag unsure sport terms with an HTML comment `<!-- CHECK TERM: ... -->`.
 - Only qualification: World Triathlon Level 1 Coach. Don't add other claims, affiliations or testimonials.
@@ -49,9 +50,9 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 ## SEO (every page)
 - Unique `<title>` and meta description (≤160 chars), canonical URL, hreflang `et`, `en`, `x-default` (→ ET).
 - Open Graph + Twitter card tags, og-image 1200×630.
-- JSON-LD @graph: ProfessionalService + Person (hasCredential World Triathlon Level 1) + Offer/Service + WebSite + WebPage. Never mark up testimonials as Review/AggregateRating. No FAQPage/HowTo markup.
+- JSON-LD @graph: Organization (not ProfessionalService – that is a LocalBusiness and requires a street address) + Person (hasCredential World Triathlon Level 1) + Offer/Service + WebSite + WebPage. Never mark up testimonials as Review/AggregateRating. No FAQPage/HowTo markup.
 - Internal links to `/` and `/en/`, never `index.html`.
-- Keywords: ET "triatloni treener", "triatloni treening", "individuaalne treening"; EN "triathlon coach Estonia", "online triathlon coaching".
+- Keywords: ET "triatloni treener", "triatloni treening", "individuaalne treening"; EN "triathlon coach Estonia", "triathlon coaching Estonia".
 - Domain: https://ilvescoaching.ee (EN at /en/). Registrar: Zone (Zone DNS).
 
 ## Hosting
@@ -68,7 +69,7 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 - No cookies, no tracking. Analytics only if cookieless, and only when Sander asks.
 
 ## Open decisions (ask, don't assume)
-Price X · analytics · photos · domain email (e.g. sander@ilvescoaching.ee)
+Analytics · photos · domain email (e.g. sander@ilvescoaching.ee)
 
 ## Before every commit
 - Both pages updated and in sync.

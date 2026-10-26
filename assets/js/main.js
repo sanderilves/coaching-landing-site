@@ -230,3 +230,33 @@ if (track) {
     update();
   }
 }
+
+// Mobile menu: the button shows below 860px (CSS). Escape, a link click or a
+// click outside closes it. Without JS the button stays hidden.
+const header = document.querySelector('.site-header');
+const menuButton = header && header.querySelector('.menu-toggle');
+
+if (menuButton) {
+  const menu = document.getElementById(menuButton.getAttribute('aria-controls'));
+  menuButton.hidden = false;
+
+  const setOpen = (open) => {
+    header.classList.toggle('is-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  };
+
+  menuButton.addEventListener('click', () => setOpen(!header.classList.contains('is-open')));
+  menu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setOpen(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && header.classList.contains('is-open')) {
+      setOpen(false);
+      menuButton.focus();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target)) setOpen(false);
+  });
+  window.matchMedia('(min-width: 860px)').addEventListener('change', () => setOpen(false));
+}
