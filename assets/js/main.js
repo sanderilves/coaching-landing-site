@@ -152,7 +152,6 @@ if (track) {
 
     const section = track.closest('section');
     cards.forEach((card, i) => {
-      card.setAttribute('role', 'group');
       card.setAttribute('aria-roledescription', t.slide);
       card.setAttribute('aria-label', `${i + 1} / ${n}`);
     });
@@ -227,7 +226,7 @@ if (track) {
     };
     track.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
-    update();
+    schedule(); // first measure in the next frame, not right after the DOM writes above
   }
 }
 
