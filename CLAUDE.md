@@ -38,7 +38,7 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 
 ## Positioning & content rules
 - Coaching is mostly remote, but the word 'online' must not appear anywhere (visible text, meta, OG/Twitter, JSON-LD). Say it as ET 'asukohast sõltumata' / EN 'wherever you are'.
-- Language line under the price (no full stop): ET "Treening asukohast sõltumata, eesti ja inglise keeles" / EN "Coaching wherever you are, in Estonian and English".
+- Language line under the price (no full stop): ET "Juhendamine asukohast sõltumata, eesti ja inglise keeles" (menu item stays "Treening") / EN "Coaching wherever you are, in Estonian and English".
 - H1: ET "Triatloni treener harrastussportlastele" / EN "Triathlon coaching for age-group athletes". "Ujumine. Ratas. Jooks." / "Swim. Bike. Run." is the eyebrow line.
 - **Pricing:** a single anchor line, "Alates 100 €/kuu (täpne pakkumine personaalselt)" / "From €100/month (exact offer tailored to you)". No package tables. (Decided 2026-10-26; replaces the earlier no-pricing rule.)
 - ET and EN must stay in sync: same sections, same order, same CTAs. Every change is made on both pages.
