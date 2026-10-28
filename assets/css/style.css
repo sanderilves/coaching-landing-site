@@ -158,10 +158,16 @@ h2.display em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--
 /* ---------- Who it's for ---------- */
 .who{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:48px}
 @media (min-width:760px){.who{grid-template-columns:repeat(3,1fr)}}
-.who > div{background:var(--bg);padding:32px 28px}
-.who .n{font-family:var(--display);font-weight:800;font-size:48px;line-height:1}
-.who h3{font-family:var(--display);text-transform:uppercase;font-size:26px;margin:10px 0 6px}
-.who p{margin:0;color:var(--muted)}
+.who > div,.steps li{background:var(--bg);padding:32px 28px}
+.who .n,.steps .n{font-family:var(--display);font-weight:800;font-size:48px;line-height:1}
+.who h3,.steps h3{font-family:var(--display);text-transform:uppercase;font-size:26px;margin:10px 0 6px}
+.who p,.steps p{margin:0;color:var(--muted)}
+
+/* ---------- How it works (same cards as "who", numbered list) ---------- */
+.steps{list-style:none;padding:0;display:grid;gap:2px;background:var(--line);border:1px solid var(--line);margin:48px 0 40px}
+@media (min-width:600px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps h3{line-height:1.1}
 
 /* ---------- What's included ---------- */
 ul.list{list-style:none;padding:0;margin:0 0 32px;border-top:1px solid var(--line)}
@@ -205,6 +211,21 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
   .t-cards.is-carousel > .t-card{flex-basis:calc((100% - 48px) / 3)}
 }
 
+/* ---------- FAQ (native <details>, no JS) ---------- */
+.faq{max-width:760px;margin-top:40px;border-top:1px solid #d9dcdf}
+.faq details{border-bottom:1px solid #d9dcdf}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:12px 0;font-size:17px;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex-shrink:0;font-family:var(--display);font-weight:800;font-size:28px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 20px;max-width:60ch;color:var(--muted)}
+
+/* ---------- Privacy page ---------- */
+.legal{padding:64px 0 96px}
+.legal h1{font-size:clamp(48px,9vw,80px);font-weight:800;margin-bottom:32px}
+.legal p{max-width:68ch;margin:0 0 18px}
+.legal .updated{margin-top:32px;font-size:14px;color:var(--muted)}
+
 /* ---------- About ---------- */
 .wwh{margin:32px 0}
 .wwh div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid #d9dcdf}
@@ -242,7 +263,7 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 
 /* ---------- Footer ---------- */
 .site-footer{background:var(--ink);color:#8a9096;font-size:13px;letter-spacing:.06em;border-top:1px solid var(--dark-line)}
-.site-footer .wrap{display:flex;flex-direction:column;gap:8px;padding:24px 20px}
-@media (min-width:640px){.site-footer .wrap{flex-direction:row;justify-content:space-between}}
-.site-footer a{color:var(--on-dark)}
+.site-footer .wrap{display:flex;flex-direction:column;gap:0;padding:12px 20px}
+@media (min-width:640px){.site-footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+.site-footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark)}
 .site-footer p{margin:0}

@@ -7,7 +7,7 @@ Its only job: get qualified athletes to get in touch.
 - **ET and EN are both live.** /index.html (ET, primary) and /en/index.html (EN) mirror each other exactly: same sections, order, layout and CTAs. Every change is made on both pages.
 - ET/EN switch = plain links in the header. Shared main.js picks UI strings by <html lang>.
 - Testimonials on EN are translations (no "translated" label); athletes approve translations.
-- **SEO work in progress** (audit 2026-10-12, score 60/100). Done: HTTPS enforced, Google Search Console + Bing Webmaster Tools, sitemap submitted. **Sprint 1 done (2026-10-26):** hero/H1, CTA above fold, mobile nav, hero image sizes, JSON-LD, meta, sitemap lastmod. Next: Sprint 2: "How it works", what's included, FAQ, E-E-A-T (credential link, race results), privacy page.
+- **SEO work in progress** (audit 2026-10-12, score 60/100). Done: HTTPS enforced, Google Search Console + Bing Webmaster Tools, sitemap submitted. **Sprint 1 done (2026-10-26):** hero/H1, CTA above fold, mobile nav, hero image sizes, JSON-LD, meta, sitemap lastmod. **Sprint 2 done (2026-10-28):** what's included (merged), "How it works", FAQ, privacy pages. Next: E-E-A-T (credential link, race results), Google Business Profile, listings.
 
 ## Stack
 - Plain HTML + CSS, minimal vanilla JS. No frameworks, no build tools, no npm dependencies in production.
@@ -17,13 +17,15 @@ Its only job: get qualified athletes to get in touch.
 ```
 /index.html          Estonian (primary)
 /en/index.html       English
+/privaatsus/index.html   privacy (ET)
+/en/privacy/index.html   privacy (EN)
 /assets/css/style.css
 /assets/js/main.js   only if needed (e.g. mobile nav)
 /assets/fonts/       self-hosted woff2
 /assets/img/         photos (webp + width/height set), favicon, og-image
 /reference/          design drafts – NOT deployed, do not link
 ```
-Planned exception to single page: a short privacy page (/privaatsus/ + /en/privacy/), required because the contact form collects personal data.
+Only exception to single page: the privacy page (/privaatsus/ + /en/privacy/), required because the contact form collects personal data. Linked from the consent checkbox and the footer on all pages.
 
 ## Brand
 - Name: **Ilves Coaching** ("ilves" = lynx in Estonian). Logo: original geometric lynx head + stacked "ILVES / COACHING".
@@ -33,7 +35,7 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 - Black & white only. No accent colour.
 - Headings: Barlow Condensed (600/800), uppercase. Body: Inter (400/500/600).
 - Fonts are **self-hosted** in /assets/fonts – never load from Google Fonts (GDPR: sends visitor IP to Google).
-- Sections in order: hero (full-bleed photo/video) → stat band → distance strip → who it's for → what's included → statement band → about → contact.
+- Sections in order: hero (full-bleed photo/video) → stat band → who it's for → what's included → how it works → statement band → about → testimonials → FAQ (<details>, no JS) → contact.
 - Hero: H1 + primary CTA must be visible without scrolling at 375px and 1280px. Hero image: fetchpriority="high", correct `sizes`, never lazy-loaded.
 
 ## Positioning & content rules
@@ -63,6 +65,7 @@ Planned exception to single page: a short privacy page (/privaatsus/ + /en/priva
 - Repo notes (CLAUDE.md, handoff briefs, /reference/) are kept off the live site by the deploy workflow allowlist (.github/workflows/pages.yml copies only the listed site files into _site and adds .nojekyll), not by _config.yml – Jekyll never runs. Any new public file or folder (e.g. the privacy page) must be added to the workflow's copy list. The repo itself is public, so notes are still readable on GitHub.
 
 ## Contact & privacy
+- Legal identity: Sander Ilves, private person (not registered as FIE). No registry code anywhere. He is the data controller on the privacy page.
 - Primary CTA: contact form → #kontakt ("Võta ühendust" / "Get in touch"). No Calendly for now.
 - Contact form: **Web3Forms** (free, no backend, works on GitHub Pages). Fields: name, email, message + required consent checkbox + short privacy note linking to the privacy page. No health data.
 - Email: sander.ilves@hotmail.com – shown in the footer as a mailto link. Not in JSON-LD.
