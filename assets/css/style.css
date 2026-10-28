@@ -54,7 +54,7 @@ a{color:inherit}
 
 /* Focus: dark ring on light backgrounds, white ring on dark ones */
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.hero :focus-visible,.contact :focus-visible,.site-footer :focus-visible{outline-color:var(--on-dark)}
+.hero :focus-visible,.stats :focus-visible,.contact :focus-visible,.site-footer :focus-visible{outline-color:var(--on-dark)}
 
 .skip{position:absolute;left:12px;top:-100px;z-index:50;background:var(--ink);color:var(--on-dark);padding:10px 16px;font-weight:600;text-decoration:none}
 .skip:focus{top:12px;outline-color:var(--ink)}
@@ -144,6 +144,10 @@ h2.display em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--
 @media (min-width:760px){.stats .wrap{grid-template-columns:repeat(3,1fr)}.stat{padding:34px 10px;border-bottom:0;border-right:1px solid var(--dark-line)}.stat:last-child{border-right:0}}
 .stat b{display:block;font-family:var(--display);font-weight:800;font-size:46px;line-height:1}
 .stat span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted)}
+/* The L1 stat links to the certificate page */
+a.stat{display:block;color:inherit;text-decoration:none}
+a.stat:focus-visible{outline-offset:-6px}
+a.stat:hover span{color:var(--on-dark);text-decoration:underline;text-underline-offset:4px}
 
 /* ---------- Split (media + text) ---------- */
 .split{display:grid;gap:48px;align-items:start}
@@ -220,11 +224,17 @@ ul.list li::before{content:"";position:absolute;left:0;top:23px;width:18px;heigh
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{margin:0 0 20px;max-width:60ch;color:var(--muted)}
 
-/* ---------- Privacy page ---------- */
+/* ---------- Subpages (privacy, certificate) ---------- */
 .legal{padding:64px 0 96px}
 .legal h1{font-size:clamp(48px,9vw,80px);font-weight:800;margin-bottom:32px}
 .legal p{max-width:68ch;margin:0 0 18px}
 .legal .updated{margin-top:32px;font-size:14px;color:var(--muted)}
+.facts{max-width:68ch;margin:0 0 32px;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media (min-width:600px){.facts div{grid-template-columns:220px 1fr;gap:16px}}
+.facts dt{font-weight:600}
+.facts dd{margin:0}
+.cert-img{display:block;width:100%;max-width:800px;height:auto;margin:48px 0;border:1px solid var(--line)}
 
 /* ---------- About ---------- */
 .wwh{margin:32px 0}

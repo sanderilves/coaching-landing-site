@@ -19,13 +19,15 @@ Its only job: get qualified athletes to get in touch.
 /en/index.html       English
 /privaatsus/index.html   privacy (ET)
 /en/privacy/index.html   privacy (EN)
+/sertifikaat/index.html      World Triathlon Level 1 certificate (ET)
+/en/certificate/index.html   certificate (EN)
 /assets/css/style.css
 /assets/js/main.js   only if needed (e.g. mobile nav)
 /assets/fonts/       self-hosted woff2
 /assets/img/         photos (webp + width/height set), favicon, og-image
 /reference/          design drafts – NOT deployed, do not link
 ```
-Only exception to single page: the privacy page (/privaatsus/ + /en/privacy/), required because the contact form collects personal data. Linked from the consent checkbox and the footer on all pages.
+Exceptions to single page: the privacy page (/privaatsus/ + /en/privacy/), required because the contact form collects personal data, linked from the consent checkbox and the footer on all pages; and the certificate page (/sertifikaat/ + /en/certificate/), linked from the L1 stat in the stat band and a "(vaata sertifikaati)" / "(view certificate)" link right after "Level 1 treener" / "Level 1 Coach" in About.
 
 ## Brand
 - Name: **Ilves Coaching** ("ilves" = lynx in Estonian). Logo: original geometric lynx head + stacked "ILVES / COACHING".
@@ -46,6 +48,7 @@ Only exception to single page: the privacy page (/privaatsus/ + /en/privacy/), r
 - ET and EN must stay in sync: same sections, same order, same CTAs. Every change is made on both pages.
 - Estonian written natively, informal "sina". Flag unsure sport terms with an HTML comment `<!-- CHECK TERM: ... -->`.
 - Only qualification: World Triathlon Level 1 Coach. Don't add other claims, affiliations or testimonials.
+- Credential verification URL: https://education.triathlon.org/admin/tool/certificate/index.php?code=8047798207SI (World Triathlon Coaches Level 1 Course, Pajulahti 2–4 Oct 2026, reg. no 102396, valid 4 years until Oct 2030). Also in JSON-LD Person.hasCredential.url.
 - No guaranteed results, no health/medical claims.
 - Mark every missing item with `<!-- TODO: ... -->` and a visible placeholder (never ship TODO inside JSON-LD).
 

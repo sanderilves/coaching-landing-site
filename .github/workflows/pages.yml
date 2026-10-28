@@ -27,7 +27,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -R index.html en privaatsus assets robots.txt sitemap.xml CNAME favicon.ico _site/
+          cp -R index.html en privaatsus sertifikaat assets robots.txt sitemap.xml CNAME favicon.ico _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

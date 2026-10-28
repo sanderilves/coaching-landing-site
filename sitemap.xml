@@ -28,4 +28,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://ilvescoaching.ee/en/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilvescoaching.ee/privaatsus/"/>
   </url>
+  <url>
+    <loc>https://ilvescoaching.ee/sertifikaat/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="et" href="https://ilvescoaching.ee/sertifikaat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilvescoaching.ee/en/certificate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilvescoaching.ee/sertifikaat/"/>
+  </url>
+  <url>
+    <loc>https://ilvescoaching.ee/en/certificate/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="et" href="https://ilvescoaching.ee/sertifikaat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilvescoaching.ee/en/certificate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilvescoaching.ee/sertifikaat/"/>
+  </url>
 </urlset>
